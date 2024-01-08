@@ -9,3 +9,6 @@ echo -e "\e[35m nice color magenta \e[0m"
 echo -e "\e[36m printing cyan \e[0m"
 echo -e "\e[36;45m printing font colr as cyan and background color as magenta \e[0m"
 echo -e "\e[43;32m I am printing Green Color with YELLOW as Background \e[0m"
+echo  -e "\e[43 print background color \e[0m"
+
+# 
