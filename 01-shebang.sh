@@ -11,4 +11,11 @@ echo -e "\e[36;45m printing font colr as cyan and background color as magenta \e
 echo -e "\e[43;32m I am printing Green Color with YELLOW as Background \e[0m"
 echo -e "\e[44;35m printing color \e[0m"
 
-# 
+# variable in bash/sheel scripting
+a=10
+b=20
+c=30
+
+echo $a
+echo ${b}
+echo "$c"
