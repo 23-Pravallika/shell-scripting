@@ -23,7 +23,7 @@ echo "I am pritning the value of d $d"
 
 n=$(who | wc -l)
 TODAYDATE=$(date +%F)
-echo "Number of users sessions in the system are $n"
+echo "Number of users sessions in the system are :$n"
 echo $TODAYDATE
 PID=$(lsblk)
 echo -e "\n $PID"
