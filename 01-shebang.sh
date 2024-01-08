@@ -21,7 +21,7 @@ echo ${b}
 echo "$c"
 echo "I am pritning the value of d $d" 
 
-# n=$(who | grep wc -l)
+n=$(who | grep wc -l)
 TODAYDATE=$(date +%F)
-# echo -e "Number of users sessions in the system are $n"
+echo "Number of users sessions in the system are $n"
 echo $TODAYDATE
