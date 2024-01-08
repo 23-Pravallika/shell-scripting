@@ -29,9 +29,14 @@ PID=$(lsblk)
 echo -e "\n $PID"
 
 # Special variables
+
+#Special Characters :  $0 to $9 , $* , $# , #@ , $$
+
 echo $0    # Prints Script Name 
 echo $1    # Takes the first value from the command line 
 echo $2    # Takes the second value from the command line 
+echo $3    # Takes the second value from the command line
+# bash scriptName.sh 100 200 300  -->here 100 will goes to $1, 200 goes to $2, 300 goes to $3
 
 echo $*    # $* is going to print the used variables  
 echo $@    # $@ is going to print the used variables  
