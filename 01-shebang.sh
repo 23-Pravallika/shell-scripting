@@ -36,7 +36,8 @@ echo $0    # Prints Script Name
 echo $1    # Takes the first value from the command line 
 echo $2    # Takes the second value from the command line 
 echo $3    # Takes the second value from the command line
-# bash scriptName.sh 100 200 300  -->here 100 will goes to $1, 200 goes to $2, 300 goes to $3
+# bash scriptName.sh 100 200 300......900  -->here 100 will goes to $1, 200 goes to $2, 300 goes to $3 l
+               #ikewise we can supply upto 9 that means $1 to $9
 
 echo $*    # $* is going to print the used variables  
 echo $@    # $@ is going to print the used variables  
