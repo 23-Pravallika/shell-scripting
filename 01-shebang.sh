@@ -25,5 +25,5 @@ n=$(who | wc -l)
 TODAYDATE=$(date +%F)
 echo "Number of users sessions in the system are $n"
 echo $TODAYDATE
-PID=$(cat /etc/passwd)
+PID=$(cat -n /etc/passwd)
 echo $PID
