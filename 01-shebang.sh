@@ -26,4 +26,4 @@ TODAYDATE=$(date +%F)
 echo "Number of users sessions in the system are $n"
 echo $TODAYDATE
 PID=$(lsblk)
-echo $PID
+echo -e "\n $PID"
