@@ -6,7 +6,7 @@ b=30
 sample() {
     echo "Welcome to shell/bash scripting"
 }
-function() {
+stat() {
     echo $a
     echo ${b}
     echo "$1"
@@ -14,4 +14,4 @@ function() {
 }
 
 
-function
+stat
