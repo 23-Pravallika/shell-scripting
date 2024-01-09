@@ -12,6 +12,4 @@ stat() {
     echo "$1"
     sample    
 }
-
-
 stat
