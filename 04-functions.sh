@@ -9,7 +9,7 @@ sample() {
 }
 stat() {
     
-    echo  $1
+    echo "Hello, $1 and $2"
     #sample
        
 }
