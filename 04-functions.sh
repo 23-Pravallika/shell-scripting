@@ -11,7 +11,7 @@ stat() {
     echo "$1"
     echo  $a
     echo  ${b}
-    sample    
+       
 }
 
 stat
