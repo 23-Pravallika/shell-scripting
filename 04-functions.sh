@@ -6,15 +6,15 @@ b=30
 
 sample() {
     echo "Welcome to shell/bash scripting"
-    echo ${a}
-    echo $b
+    
 }
 stat() {
     
     echo  "This is stat function"
-    #sample
+    echo $a
+    echo "$b"
+    sample "$3" "$4"
        
 }
 
-sample "$3" "$4"
 stat
