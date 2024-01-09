@@ -7,9 +7,10 @@ sample() {
     echo "Welcome to shell/bash scripting"
 }
 stat() {
-    echo $a
-    echo ${b}
+    
     echo "$1"
+    echo  $a
+    echo  ${b}
     sample    
 }
-stat
+ stat
