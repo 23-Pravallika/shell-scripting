@@ -5,12 +5,13 @@ b=30
 
 sample (){
     echo "Welcome to shell/bash scripting"
-function (){
+}
+function () {
     echo $a
     echo ${b}
     echo "$1"
     sample    
 }
-}
+
 
 function
