@@ -3,10 +3,10 @@
 a=10
 b=30
 
-sample (){
+sample() {
     echo "Welcome to shell/bash scripting"
 }
-function (){
+function() {
     echo $a
     echo ${b}
     echo "$1"
