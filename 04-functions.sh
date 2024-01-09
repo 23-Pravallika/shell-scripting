@@ -15,4 +15,4 @@ stat() {
        
 }
 
-sample
+sample "$1"
