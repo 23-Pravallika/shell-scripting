@@ -15,4 +15,3 @@ stat() {
 }
 
 stat
-stat
