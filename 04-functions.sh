@@ -13,4 +13,6 @@ stat() {
     echo  ${b}
     sample    
 }
- stat
+
+stat
+stat
