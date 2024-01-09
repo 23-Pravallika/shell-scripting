@@ -1,7 +1,7 @@
 #!bin/bash
 
 sample (){
-    echo "function"
+    echo "Welcome to shell/bash scripting"
 }
 
 sample
