@@ -10,7 +10,7 @@ sample() {
 stat() {
     
     echo  $1
-    
+    sample
        
 }
 
