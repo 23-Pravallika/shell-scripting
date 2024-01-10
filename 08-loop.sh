@@ -3,15 +3,18 @@
 
 for i in {1..5}
 do 
-   echo "values from i loop : $i"
+   echo "values from i loop :"
+   echo "$i"
 done
 
 for j in 1 2 3
 do
-    echo "values from j loop : $j"
+    echo "values from j loop :"
+    echo "$j"
 done
 
 for k in 1,2,3
 do
-    echo "values from k loop : $k"
+    echo "values from k loop :" 
+    echo "$k"
 done
