@@ -1,7 +1,7 @@
 #!/bin/bash
 
 Action=$1
-Option=$1
+Option=$2
 
 case $Action in
   Add)
@@ -21,12 +21,13 @@ case $Action in
 esac
 
 
+
 case $Option in
     Addition)
-        echo "Addition of numbers: $(4+1)"
+        echo "Addition of numbers: $($1+$1)"
         ;;
     Mulitiplication)
-        echo "Mulitiplication of numbers :$(2*3)"
+        echo "Mulitiplication of numbers :$($1*$2)"
         ;;
     *)
 
