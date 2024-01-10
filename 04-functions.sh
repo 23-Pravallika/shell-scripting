@@ -3,7 +3,7 @@
 
 sample() {
     echo "Welcome to shell/bash scripting"
-    echo $1
+    echo " printing the value in sample function: $1"
 }
 stat() {
     
