@@ -11,7 +11,7 @@ stat() {
    # echo $a
    # echo "$b"
     #sample
-       sample "$1" "$2"
+       sample $1 $2
 }
 
 sample 30
