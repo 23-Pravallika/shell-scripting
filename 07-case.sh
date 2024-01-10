@@ -15,6 +15,6 @@ case $Action in
   
   *)
     
-    echo  -e "\e[32m Invalid option Pls enter the valid option \e[0m"    
+    echo  -e "\e[31m Invalid option Pls enter the valid option \e[0m"    
 
 esac
