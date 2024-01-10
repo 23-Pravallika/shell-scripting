@@ -3,8 +3,8 @@
 
 sample() {
     
-    echo "This is ssample function"
-    echo "printing the value in sample function: $1"
+    echo "This is sample function"
+    echo "printing the value in sample function: "
 }
 stat() {
     
