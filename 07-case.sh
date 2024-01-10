@@ -1,7 +1,6 @@
 #!/bin/bash
 
 Action=$1
-Option=$2
 
 case $Action in
   Add)
@@ -20,6 +19,7 @@ case $Action in
 
 esac
 
+Option=$2
 a=2
 b=3
 
