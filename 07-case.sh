@@ -9,7 +9,12 @@ case $Action in
   Mul)
    echo "Mulitiplication"
    ;;
-  Other)
-  echo "Invalid options" 
+  div)
+  echo "Division" 
   ;;
+  
+  *)
+    
+    echo "\e[32m Invalid option Pls enter the valid option \e[0m"    
+
 esac
