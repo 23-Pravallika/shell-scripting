@@ -2,7 +2,7 @@
 
 
 for i in {1..5}
-echo "values from i loop :"
+    echo "values from i loop :"
 do 
    echo "$i"
 done
