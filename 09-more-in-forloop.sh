@@ -33,9 +33,16 @@ done
             for variable in {START..END..FACTOR}
 COMMENT
 
-echo "Using range with increment or decrement factor"
+echo "Using range with increment factor"
 for j in {1..4..2}
 do
     echo "$j"
+done
+
+
+echo "Using range with decrement factor"
+for i in {6..1..2} 
+do
+    echo "$i"
 done
 
