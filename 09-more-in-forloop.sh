@@ -34,7 +34,7 @@ done
 COMMENT
 
 echo "Using range with increment factor"
-for j in {1..4..2}
+for j in {1..6..2}
 do
     echo "$j"
 done
