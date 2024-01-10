@@ -2,14 +2,14 @@
 
 
 for i in {1..5}
+echo "values from i loop :"
 do 
-   echo "values from i loop :"
    echo "$i"
 done
 
 for j in 1 2 3
+echo "values from j loop :"
 do
-    echo "values from j loop :"
     echo "$j"
 done
 
