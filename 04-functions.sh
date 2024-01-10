@@ -9,7 +9,7 @@ sample() {
 stat() {
     
     echo  "This is stat function"
-    sample $1$2
+    sample $1 $2
 }
 
 sample 30
