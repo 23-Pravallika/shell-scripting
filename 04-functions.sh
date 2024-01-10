@@ -11,11 +11,11 @@ sample() {
 stat() {
     
     echo  "This is stat function"
-    echo $a
-    echo "$b"
+   # echo $a
+   # echo "$b"
     #sample
        
 }
 
 sample "$3" "$4"
-stat
+stat "$3" "$4"
