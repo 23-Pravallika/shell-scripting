@@ -1,14 +1,14 @@
 #!/bin/bash
 
 
+echo "values from i loop :"
 for i in {1..5}
-    echo "values from i loop :"
 do 
    echo "$i"
 done
 
-for j in 1 2 3
 echo "values from j loop :"
+for j in 1 2 3
 do
     echo "$j"
 done
