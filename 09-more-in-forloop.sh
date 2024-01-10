@@ -46,3 +46,44 @@ do
     echo "$i"
 done
 
+<<COMMENT
+    Using eval : We can specify the variable range to the echo command and this will be inside the eval command.
+        Syntax: 
+            for variable in $(eval echo "{$START..$END..$FACTOR}")
+COMMENT
+
+
+echo "Using eval"
+a=1
+b=2
+c=6
+for j in $(eval echo "{$a..$b..$c}")
+do 
+    echo "$j"
+done
+
+
+<<COMMENT
+Using conditions
+    Syntax: 
+        for (( initializer ; condition; counter ))
+        do  
+            …
+            …
+        done
+COMMENT
+
+#!/bin/bash
+ 
+echo "Forward"
+for (( i=1; i<=10; i++ )) 
+do
+    echo "$i"
+done
+ 
+echo "Reverse"
+for (( i=10; i>=1; i-- )) 
+do
+    echo "$i"
+done
+
