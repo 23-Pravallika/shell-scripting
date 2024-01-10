@@ -14,6 +14,9 @@ for var in {1..6}
     done
 
 <<COMMENT
+
+    We cannot use for loop range with variables (as shown below)
+
 COMMENT
 
 a=1
@@ -22,3 +25,17 @@ for i in {$a..$b}   #loop 1
 do
     echo "$i"
 done
+
+<<COMMENT
+
+    Using range with increment or decrement factor (as shown below)
+    Syntax:
+            for variable in {START..END..FACTOR}
+COMMENT
+
+echo "Using range with increment or decrement factor"
+for j in {1..4..2}
+do
+    echo "$j"
+done
+
