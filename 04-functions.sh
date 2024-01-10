@@ -12,5 +12,4 @@ stat() {
     sample $1,$2
 }
 
-sample 30
 stat 40 60
