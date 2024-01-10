@@ -17,5 +17,5 @@ stat() {
        
 }
 
-sample "$3" "$4"
+sample "$1" "$2"
 stat "$3" "$4"
