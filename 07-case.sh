@@ -20,14 +20,15 @@ case $Action in
 
 esac
 
-
+a=2
+b=3
 
 case $Option in
     Addition)
-        echo "Addition of numbers: $($1+$1)"
+        echo "Addition of numbers: $($a+$b)"
         ;;
     Mulitiplication)
-        echo "Mulitiplication of numbers :$($1*$2)"
+        echo "Mulitiplication of numbers :$($a*$b)"
         ;;
     *)
 
