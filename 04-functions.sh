@@ -4,7 +4,7 @@
 sample() {
     
     echo "This is ssample function"
-    echo " printing the value in sample function: $1"
+    echo "printing the value in sample function: $1"
 }
 stat() {
     
