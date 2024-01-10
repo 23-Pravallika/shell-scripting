@@ -1,5 +1,7 @@
 #!/bin/bash
 
+Action=$1
+
 case $Action in
   Add)
    echo "Adding"
@@ -11,4 +13,3 @@ case $Action in
   echo "Invalid options" 
   ;;
 esac
-   
