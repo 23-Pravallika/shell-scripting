@@ -1,8 +1,5 @@
 #!/bin/bash
-fu() {
-   
-   echo "fu is function"
-}
+
 
 for i in {1..5}
 do 
