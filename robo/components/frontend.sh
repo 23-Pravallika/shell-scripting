@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "frontend :"
-set -e
+#set -e
 
 ID=$(id root)
 
