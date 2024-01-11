@@ -1,6 +1,6 @@
 #!bin/bash
 
-echo "frontend"
+echo "frontend :"
 
 yum install nginx -y
 
