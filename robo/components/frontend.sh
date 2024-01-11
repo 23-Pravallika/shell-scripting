@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "frontend :"
-
+set -e
 yum install nginx -y
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 
