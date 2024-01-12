@@ -46,7 +46,7 @@ status $?
 
 echo -n "Unzipping the downloaded schema : "
 cd /tmp
-unzip -y mongodb.zip &>> $LOGFILE
+unzip -o mongodb.zip &>> $LOGFILE
 status $?
 
 echo -n "Injecting the schema : "
