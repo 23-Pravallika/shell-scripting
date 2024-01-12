@@ -45,7 +45,7 @@ npm install  &>> $LOGFILE
 status $?
 
 echo -n "IP address Upate :"
-sed -i -e 's/MONGO_DNSNAME/172.31.31.62/' /home/roboshop/catalogue/systemd.service 
+sed -i -e 's/MONGO_DNSNAME/172.31.31.62/' /home/roboshop/catalogue/systemd.service  &>> $LOGFILE
 status $?
 
 echo -n "Starting the catalogue :"
