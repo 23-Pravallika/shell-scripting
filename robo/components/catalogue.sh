@@ -62,7 +62,7 @@ mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/catalogue.servi
 status $?
 
 
-echo -n "Starting the Application :"
+echo -n "Starting the  $COMPONENT Application :"
 systemctl daemon-reload
 systemctl start catalogue
 systemctl enable catalogue  &>> $LOGFILE
