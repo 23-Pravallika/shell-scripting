@@ -3,6 +3,7 @@
 ID=$(id -u)
 LOGFILE="/tmp/catalogue.logs"
 APPUSER=roboshop
+COMPONENT=catalogue
 
 
 if [ $ID -ne 0 ] ; then
@@ -37,37 +38,8 @@ if [ $? -ne 0 ] ; then
 fi
 
 
-echo -n "Downloading the catalogue component :"
-curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"  &>> $LOGFILE
-status $?
+echo -n "Configuring the permissions :"
+chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
 
 
 
-echo -n "Extracting the catalogue :"
-cd /home/roboshop
-unzip -o /tmp/catalogue.zip   &>> $LOGFILE
-mv catalogue-main catalogue
-status $?
-
-
-
-echo -n "Installing the dependencies :"
-cd /home/roboshop/catalogue
-npm install  &>> $LOGFILE
-status $?
-
-
-
-echo -n "IP address Upate :"
-sed -i -e 's/MONGO_DNSNAME/172.31.31.62/' /home/roboshop/catalogue/systemd.service  &>> $LOGFILE
-status $?
-
-
-
-echo -n "Starting the catalogue :"
-mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
-systemctl daemon-reload
-systemctl start catalogue
-systemctl enable catalogue  &>> $LOGFILE
-systemctl status catalogue -l
-status $?
