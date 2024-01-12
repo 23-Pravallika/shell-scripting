@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "mysql :"
+echo "Iam mysql :"
 

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "catalogue :"
+echo "Iam catalogue :"
 

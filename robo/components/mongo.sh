@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "mongo :"
+echo "Iam mongo :"
 
