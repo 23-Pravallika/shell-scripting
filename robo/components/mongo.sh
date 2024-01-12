@@ -5,7 +5,7 @@ LOGFILE="/tmp/mongo.logs"
 
 if [ $ID -ne 0 ] ; then
     echo -e "\e[31m You should execute this script as root user or with a sudo as prefix  \e[0m"
-    exit
+    exit 1
 fi
 
 stauts() {
@@ -13,8 +13,8 @@ stauts() {
         echo -e "\e[32m Sucess \e[0m"
     else
         echo -e "\e[31m Failure \e[0m"
-        exit
-fi
+        exit 2
+    fi
 }
 
 echo -n "Configuring the mongodb repo :"
