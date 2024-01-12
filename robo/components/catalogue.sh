@@ -18,7 +18,7 @@ status() {
 }
 
 echo -n "Installing  NodeJS Repo :"
-yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y  
+yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y  &>> $LOGFILE
 status $?
 
 echo -n "NodeJS installation :"
@@ -35,7 +35,7 @@ status $?
 
 echo -n "Extracting the catalogue :"
 cd /home/roboshop
-unzip /tmp/catalogue.zip   &>> $LOGFILE
+unzip -o /tmp/catalogue.zip   &>> $LOGFILE
 mv catalogue-main catalogue
 status $?
 
@@ -45,7 +45,7 @@ npm install  &>> $LOGFILE
 status $?
 
 echo -n "IP address Upate :"
-sed -i -e 's/MONGO_DNSNAME/172.31.31.62/' /home/roboshop/catalogue/systemd.servce
+sed -i -e 's/MONGO_DNSNAME/172.31.31.62/' /home/roboshop/catalogue/systemd.service 
 status $?
 
 echo -n "Starting the catalogue :"
