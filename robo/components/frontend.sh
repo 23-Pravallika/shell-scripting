@@ -18,15 +18,12 @@ status() {
         echo -e  "\e[32m Success \e[0m"
     else
         echo -e  "\e[31m Failure \e[0m"
-        #exit 2
+        exit 
 fi
 }
 
 echo -n "Installing nginx : "
 yum install nginx -y   &>> $LOGFILE
-status $?
-systemctl enable nginx  &>> $LOGFILE
-systemctl start nginx   &>> $LOGFILE
 status $?
 
 
@@ -34,9 +31,12 @@ echo -n "downloading content :"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"  &>> $LOGFILE
 status $?
 
-echo -n "Cleaning and deploying :"
+
+echo -n "Cleaning old content:"
 cd /usr/share/nginx/html
 rm -rf *     
+
+echo -n "Copying downloaded content :" 
 unzip /tmp/frontend.zip  &>> $LOGFILE
 mv frontend-main/* .       
 mv static/* .
@@ -45,8 +45,9 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf
 status $?
 
 
-echo -n "restarting the service :"
+echo -n "starting the service :"
 systemctl daemon-reload
-systemctl restart nginx
+systemctl enable nginx  
+systemctl start nginx
 status $?
 
