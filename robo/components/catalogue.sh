@@ -64,7 +64,6 @@ status $?
 
 echo -n "Starting the  $COMPONENT Application :"
 systemctl daemon-reload
-systemctl start catalogue
-systemctl enable catalogue  &>> $LOGFILE
-systemctl status catalogue -l
+systemctl enable $COMPONENT  &>> $LOGFILE
+systemctl start $COMPONENT
 status $?
