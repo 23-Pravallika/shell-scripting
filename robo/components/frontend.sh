@@ -4,11 +4,11 @@
 
 #set -e
 
-ID=$(id root)
-Log=$(&>> /tmp/logs)
+ID=$(id -u)
+LOGFILE="/tmp/frontend.logs"
 
 if [ $ID -ne 0 ] ; then
-    echo -e "\e[31m You need to be root to perform this command \e[0m"
+    echo -e "\e[31m You should execute this script as root user or with a sudo as prefix  \e[0m"
 fi
 
 status() {
@@ -21,25 +21,25 @@ fi
 }
 
 echo "Installing nginx : "
-yum install nginx -y   $Log
+yum install nginx -y   &>> $LOGFILE
 status $?
-systemctl enable nginx  $Log
-systemctl start nginx   $Log
+systemctl enable nginx  &>> $LOGFILE
+systemctl start nginx   &>> $LOGFILE
 status $?
 
 
 echo "downloading content :"
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"  $Log
+curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"  &>> $LOGFILE
 status $?
 
 echo "Cleaning and deploying :"
 cd /usr/share/nginx/html
-rm -rf *     $Log
-unzip /tmp/frontend.zip  $Log
+rm -rf *     
+unzip /tmp/frontend.zip  &>> $LOGFILE
 mv frontend-main/* .       
 mv static/* .
-rm -rf frontend-main README.md   $Log
-mv localhost.conf /etc/nginx/default.d/roboshop.conf    $Log
+rm -rf frontend-main README.md   
+mv localhost.conf /etc/nginx/default.d/roboshop.conf    
 status $?
 
 
