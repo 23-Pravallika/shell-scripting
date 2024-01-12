@@ -18,7 +18,7 @@ fi
 }
 
 echo -n "Installing the Repos : "
-curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo  &>> $LOGFILES
+curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo  
 status $?
 
 echo -n "Installing the mongo : "
