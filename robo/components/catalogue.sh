@@ -40,6 +40,7 @@ fi
 
 echo -n "Configuring the permissions :"
 chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
+status $?
 
 
 
