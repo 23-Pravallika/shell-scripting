@@ -2,6 +2,8 @@
 
 ID=$(id -u)
 LOGFILE="/tmp/catalogue.logs"
+APPUSER=roboshop
+
 
 if [ $ID -ne 0 ] ; then
     echo -e "\e[31m You should execute this script as root user or with a sudo as prefix \e[0m"
@@ -27,8 +29,8 @@ yum install nodejs -y &>> $LOGFILE
 stat $?
 
 
-id roboshop &>> $LOGFILE
-if [id -ne 0] ; then
+id $APPUSER &>> $LOGFILE
+if [ $? -ne 0 ] ; then
     echo -n "Creating Application user account :"
     useradd roboshop
     status $?
