@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ID=$(id -u)
-LOGFILES="/tmp/mongo.logs"
+LOGFILE="/tmp/mongo.logs"
 
 if [ $ID -ne 0 ] ; then
     echo -e "\e[31m You should execute this script as root user or with a sudo as prefix  \e[0m"
@@ -22,11 +22,11 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans
 status $?
 
 echo -n "Installing the mongo : "
-yum install -y mongodb-org  &>> $LOGFILES
+yum install -y mongodb-org  &>> $LOGFILE
 status $?
 
 echo -n "Starting mongo : "
-systemctl enable mongod   &>> $LOGFILES
+systemctl enable mongod   &>> $LOGFILE
 systemctl start mongod
 status $?
 
@@ -40,17 +40,17 @@ systemctl restart mongod
 status $?
 
 echo -n "Downloading the schema : "
-curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"   &>> $LOGFILES
+curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"   &>> $LOGFILE
 status $?
 
 echo -n "Unzipping the downloaded schema : "
 cd /tmp
-unzip mongodb.zip &>> $LOGFILES
+unzip mongodb.zip &>> $LOGFILE
 status $?
 
 echo -n "Injecting the schema : "
 cd mongodb-main
-mongo < catalogue.js  &>> $LOGFILES
-mongo < users.js  &>> $LOGFILES
+mongo < catalogue.js  &>> $LOGFILE
+mongo < users.js  &>> $LOGFILE
 status $?
 
