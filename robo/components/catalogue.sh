@@ -21,8 +21,8 @@ status() {
 }
 
 echo -n "Configuring the nodejs repo :"
-curl yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y  &>> $LOGFILE
-stat $?  
+curl --silent --location https://rpm.nodesource.com/setup_16.x | bash - &>> $LOGFILE
+stat $?   
 
 echo -n "Installing NodeJS :"
 yum install nodejs -y &>> $LOGFILE
