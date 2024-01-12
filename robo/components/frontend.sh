@@ -3,9 +3,9 @@
 #echo "Iam frontend :"
 
 #set -e
-
+COMPONENT=frontend
 ID=$(id -u)
-LOGFILE="/tmp/frontend.logs"
+LOGFILE="/tmp/$COMPONENT.logs"
 
 if [ $ID -ne 0 ] ; then
     echo -e  "\e[31m You should execute this script as root user or with a sudo as prefix  \e[0m"
@@ -28,7 +28,7 @@ status $?
 
 
 echo -n "downloading content :"
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"  &>> $LOGFILE
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"  &>> $LOGFILE
 status $?
 
 
@@ -38,10 +38,10 @@ rm -rf *
 status $?
 
 echo -n "Copying downloaded content :" 
-unzip /tmp/frontend.zip  &>> $LOGFILE
-mv frontend-main/* .       
+unzip /tmp/$COMPONENT.zip  &>> $LOGFILE
+mv $COMPONENT-main/* .       
 mv static/* .
-rm -rf frontend-main README.md   
+rm -rf $COMPONENT-main README.md   
 mv localhost.conf /etc/nginx/default.d/roboshop.conf    
 status $?
 
