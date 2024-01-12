@@ -35,6 +35,7 @@ status $?
 echo -n "Cleaning old content:"
 cd /usr/share/nginx/html
 rm -rf *     
+status $?
 
 echo -n "Copying downloaded content :" 
 unzip /tmp/frontend.zip  &>> $LOGFILE
