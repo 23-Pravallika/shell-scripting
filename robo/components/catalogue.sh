@@ -18,12 +18,12 @@ status() {
 }
 
 echo -n "Configuring the nodejs repo :"
-yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y  &>> $LOGFILE
-status $?
+curl --silent --location https://rpm.nodesource.com/setup_16.x | bash - &>> $LOGFILE
+stat $?  
 
-echo -n "NodeJS installation :"
-yum install nodejs -y  &>> $LOGFILE
-status $?
+echo -n "Installing NodeJS :"
+yum install nodejs -y &>> $LOGFILE
+stat $?
 
 echo -n "Creating Application user account :"
 useradd roboshop
