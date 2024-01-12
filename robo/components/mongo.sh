@@ -1,5 +1,6 @@
 #!/bin/bash
 
+COMPONENT=mongodb
 ID=$(id -u)
 LOGFILE="/tmp/mongo.logs"
 
@@ -18,7 +19,7 @@ status() {
     fi
 }
 
-echo -n "Configuring the mongodb repo :"
+echo -n "Configuring the $COMPONENT repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
 status $?
 
