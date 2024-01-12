@@ -42,7 +42,7 @@ stat $?
 echo -n "Extracting the content :"
 cd /home/$APPUSER
 rm -rf /home/$APPUSER/$COMPONENT  &>> $LOGFILE
-unzip -o /tmp/catalogue.zip
+unzip -o /tmp/catalogue.zip &>> $LOGFILE
 stat $?
 
 echo -n "Configuring the permissions :"
@@ -57,7 +57,7 @@ status $?
 
 
 echo -n "Updating the systemd file with DB details :"
-sed -i -e '/MONGO_DNSNAME/ip/' /home/$APPUSER/$COMPONENT/systemd.service
+sed -i -e '/MONGO_DNSNAME/172.31.81.99/' /home/$APPUSER/$COMPONENT/systemd.service
 mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/catalogue.service
 status $?
 
