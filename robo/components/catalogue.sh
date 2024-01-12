@@ -21,7 +21,7 @@ status() {
 }
 
 echo -n "Configuring the nodejs repo :"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | bash - &>> $LOGFILE
+curl -sL https://rpm.nodesource.com/setup_8.x | sudo bash - &>> $LOGFILE
 stat $?  
 
 
