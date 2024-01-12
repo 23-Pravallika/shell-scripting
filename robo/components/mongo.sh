@@ -19,7 +19,7 @@ fi
 
 echo -n "Configuring the mongodb repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
-stat $?
+status $?
 
 echo -n "Installing the mongo : "
 yum install -y mongodb-org  &>> $LOGFILE
