@@ -2,7 +2,13 @@
 
 echo "Iam frontend :"
 
-set -e
+#set -e
+
+ID=$(id root)
+
+if [ $ID -ne 0 ] ; then
+    echo -e "\e[31m You need to be root to perform this command \e[0m"
+fi
 
 
 yum install nginx -y
