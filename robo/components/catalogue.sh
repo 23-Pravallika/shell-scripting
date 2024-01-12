@@ -17,8 +17,8 @@ status() {
     fi
 }
 
-echo -n "Installing  NodeJS Repo :"
-yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y  
+echo -n "Configuring  NodeJS Repo :"
+yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y 
 status $?
 
 echo -n "NodeJS installation :"
