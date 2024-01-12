@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Iam frontend :"
-set -e
+
 
 
 
