@@ -47,7 +47,7 @@ status $?
 
 echo -n "starting the service :"
 systemctl daemon-reload
-systemctl enable nginx  
+systemctl enable nginx  &>> $LOGFILE
 systemctl start nginx
 status $?
 
