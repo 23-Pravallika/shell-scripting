@@ -40,9 +40,9 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalog
 stat $?
 
 echo -n "Extracting the content :"
-cd /home/$APPUSER
-rm -rf /home/$APPUSER/$COMPONENT  &>> $LOGFILE
-unzip -o /tmp/catalogue.zip &>> $LOGFILE
+cd /home/$APPUSER                  &>> $LOGFILE
+rm -rf /home/$APPUSER/$COMPONENT   &>> $LOGFILE
+unzip -o /tmp/catalogue.zip        &>> $LOGFILE
 stat $?
 
 echo -n "Configuring the permissions :"
@@ -57,7 +57,7 @@ status $?
 
 
 echo -n "Updating the systemd file with DB details :"
-sed -i -e '/MONGO_DNSNAME/172.31.83.172/' /home/$APPUSER/$COMPONENT/systemd.service
+sed -i -e 's/MONGO_DNSNAME/172.31.83.172/' /home/$APPUSER/$COMPONENT/systemd.service
 status $?
 
 
