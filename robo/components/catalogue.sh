@@ -21,7 +21,7 @@ status() {
 }
 
 echo -n "Configuring the nodejs repo :"
-curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -  &>> $LOGFILE
+curl -fsSL https://rpm.nodesource.com/setup_16.x -o setup_16.sh  &>> $LOGFILE
 stat $?   
 
 echo -n "Installing NodeJS :"
