@@ -57,7 +57,7 @@ status $?
 
 
 echo -n "Updating the systemd file with DB details :"
-sed -i -e '/MONGO_DNSNAME/172.31.81.99/' /home/$APPUSER/$COMPONENT/systemd.service
+sed -i -e '/MONGO_DNSNAME/172.31.83.172/' /home/$APPUSER/$COMPONENT/systemd.service
 mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
 status $?
 
