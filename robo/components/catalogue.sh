@@ -65,5 +65,5 @@ echo -n "Starting the  $COMPONENT Application :"
 mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
 systemctl daemon-reload
 systemctl enable $COMPONENT  &>> $LOGFILE
-systemctl start $COMPONENT
+systemctl restart $COMPONENT
 status $?
