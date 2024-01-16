@@ -17,6 +17,7 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf
 status $?
 
 echo -n "Starting the Redis DB :"
-systemctl enable redis  &>> $LOGFILE
-systemctl restart redis
+systemctl daemon-reload 
+systemctl enable $COMPONENT  &>> $LOGFILE
+systemctl restart $COMPONENT
 status $?
