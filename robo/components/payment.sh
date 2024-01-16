@@ -1,6 +1,6 @@
 #!/bin/bash
 
 COMPONENT=payment
-source COMPONENT/common.sh
+source components/common.sh
 
 Python
