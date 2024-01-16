@@ -103,7 +103,7 @@ NODEJS(){
 JAVA(){
     echo -n "Installing Maven  :" 
     yum install maven -y  &>> $LOGFILE
-    status $?  &>> $LOGFILE
+    status $?  
 
     #calling the create_user
     CREATE_USER 
