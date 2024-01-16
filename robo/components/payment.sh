@@ -3,3 +3,4 @@
 COMPONENT=payment
 source COMPONENT/common.sh
 
+Python

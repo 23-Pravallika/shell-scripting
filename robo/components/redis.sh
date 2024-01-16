@@ -19,5 +19,5 @@ status $?
 echo -n "Starting the Redis DB :"
 systemctl daemon-reload 
 systemctl enable $COMPONENT  &>> $LOGFILE
-systemctl restart $COMPONENT
+systemctl start $COMPONENT
 status $?
