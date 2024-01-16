@@ -1,3 +1,6 @@
 #!/bin/bash
 
-echo "Iam shipping"
+COMPONENT=shipping
+source components/common.sh
+
+JAVA

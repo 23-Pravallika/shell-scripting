@@ -1,3 +1,7 @@
 #!/bin/bash
 
-echo "Iam cart :"
+COMPONENT=cart
+source components/common.sh
+
+NODEJS
+
