@@ -57,7 +57,7 @@ Install_npm(){
 CONF_SERVICE(){
 
     echo -n "Updating the systemd file with DB details :"
-    sed -i -e 's/MONGO_DNSNAME/PRIVATE_IP/' -e 's/REDIS_ENDPOINT/PRIVATE_IP/' -e 's/MONGO_ENDPOINT/PRIVATE_IP/' -e 's/REDIS_ENDPOINT/PRIVATE_IP/' -e 's/CATALOGUE_ENDPOINT/PRIVATE_IP/' -e 's/CARTENDPOINT/PRIVATE_IP/' -e 's/DBHOST/PRIVATE_IP/' -e 's/CARTHOST/PRIVATE_IP/' -e 's/USERHOST/PRIVATE_IP/' -e 's/AMQPHOST/PRIVATE_IP/' /home/$APPUSER/$COMPONENT/systemd.service 
+    sed -i -e 's/MONGO_DNSNAME/mongo.internal.roboshop/' -e 's/REDIS_ENDPOINT/redis.internal.roboshop/' -e 's/MONGO_ENDPOINT/mongo.internal.roboshop/' -e 's/REDIS_ENDPOINT/redis.internal.roboshop/' -e 's/CATALOGUE_ENDPOINT/catalogue.internal.roboshop/' -e 's/CARTENDPOINT/cart.internal.roboshop/' -e 's/DBHOST/mysql.internal.roboshop/' -e 's/CARTHOST/cart.internal.roboshop/' -e 's/USERHOST/user.internal.roboshop/' -e 's/AMQPHOST/rabbitmq.internal.roboshop/' /home/$APPUSER/$COMPONENT/systemd.service 
     mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
     status $?
 
