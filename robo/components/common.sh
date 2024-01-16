@@ -22,7 +22,7 @@ fi
 CREATE_USER(){
 
     id $APPUSER  &>> $LOGFILE
-    if [ $? -ne 0] ; then 
+    if [ $? -ne 0 ] ; then 
         echo -n "Creating Application user account :"
         useradd roboshop
         status $?
