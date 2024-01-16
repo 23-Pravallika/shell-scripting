@@ -130,10 +130,16 @@ Python(){
     #calling download_extract function
     Download_EXTRACT
 
-    echo -n "Installing pip :"
-    cd /home/$APPUSER/$COMPONENT/ 
-    pip3 install -r requirements.txt    &>> $LOGFILE 
-    status $?
+    # echo -n "Installing pip :"
+    # cd /home/$APPUSER/$COMPONENT/ 
+    # pip3 install -r requirements.txt    &>> $LOGFILE 
+    # status $?
+
+    echo -n "Installing $COMPONENT :"
+    cd /home/roboshop/$COMPONENT/ 
+    pip3 install -r requirements.txt   &>> $LOGFILE 
+    status $? 
+
 
     U_ID=$(id -u roboshop)
     G_ID=$(id -g roboshop)
