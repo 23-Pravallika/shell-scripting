@@ -131,7 +131,7 @@ Python(){
     Download_EXTRACT
 
     echo -n "Installing pip :"
-    cd /home/roboshop/$COMPONENT/ 
+    cd /home/$APPUSER/$COMPONENT/ 
     pip3 install -r requirements.txt    &>> $LOGFILE 
     status $?
 
