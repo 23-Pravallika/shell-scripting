@@ -50,6 +50,6 @@ unzip -o /tmp/$COMPONENT.zip &>> $LOGFILE
 status $? 
 
 echo -n "Injecting the schema :"
-cd $COMPONENT-main
-mysql -uroot -pRoboShop@1 < shipping.sql 
+cd $COMPONENT-main &>> $LOGFILE
+mysql -uroot -pRoboShop@1 < shipping.sql    &>> $LOGFILE
 status $?
