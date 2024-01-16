@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COMPONENT=rabbitmq
-source COMPONENT/common.sh
+source components/common.sh
 
 echo -n "Installing Erlang :"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash  &>> $LOGFILE
