@@ -35,7 +35,7 @@ Download_EXTRACT(){
     curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
     status $? 
 
-    echo -n "Extracting the $COMPONENT in the $APPUSER directory :"
+    echo -n "Extracting the $COMPONENT in the $APPUSER directory"
     cd /home/$APPUSER 
     rm -rf /home/$APPUSER/$COMPONENT &>> $LOGFILE
     unzip -o /tmp/$COMPONENT.zip  &>> $LOGFILE
