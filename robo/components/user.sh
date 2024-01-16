@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COMPONENT=user
-source COMPONENT/common.sh
+source components/common.sh
 
 NODEJS
 
