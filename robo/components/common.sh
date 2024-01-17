@@ -123,7 +123,7 @@ JAVA(){
 PYTHON() {
     echo -n "Installing Python and dependencies :"
     yum install python36 gcc python3-devel -y  &>> $LOGFILE
-    stat $?
+    status $?
 
     # Calling Create-User Functon 
     CREATE_USER
@@ -134,13 +134,14 @@ PYTHON() {
     echo -n "Installing $COMPONENT :"
     cd /home/roboshop/$COMPONENT/ 
     pip3 install -r requirements.txt   &>> $LOGFILE 
-    stat $? 
+    status $? 
 
     USERID=$(id -u roboshop)
     GROUPID=$(id -g roboshop)
     
     echo -n "Updating the $COMPONENT.ini file :"
     sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  /home/$APPUSER/$COMPONENT/$COMPONENT.ini 
+    status $?
 
     # Calling Config-Svc Function
     CONF_SERVICE
