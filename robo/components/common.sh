@@ -120,35 +120,29 @@ JAVA(){
 
 }
 
-Python(){
-    echo -n "Installing Python :"
-    status $?
+PYTHON() {
+    echo -n "Installing Python and dependencies :"
+    yum install python36 gcc python3-devel -y  &>> $LOGFILE
+    stat $?
 
-    #calling the create_user
+    # Calling Create-User Functon 
     CREATE_USER
 
-    #calling download_extract function
+    # Calling Download_And_Extract Function
     Download_EXTRACT
-
-    # echo -n "Installing pip :"
-    # cd /home/$APPUSER/$COMPONENT/ 
-    # pip3 install -r requirements.txt    &>> $LOGFILE 
-    # status $?
 
     echo -n "Installing $COMPONENT :"
     cd /home/roboshop/$COMPONENT/ 
     pip3 install -r requirements.txt   &>> $LOGFILE 
-    status $? 
+    stat $? 
 
+    USERID=$(id -u roboshop)
+    GROUPID=$(id -g roboshop)
+    
+    echo -n "Updating the $COMPONENT.ini file :"
+    sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  /home/$APPUSER/$COMPONENT/$COMPONENT.ini 
 
-    U_ID=$(id -u roboshop)
-    G_ID=$(id -g roboshop)
-
-    echo -n "Updating the roboshop user id and group id :"
-    sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  /home/$APPUSER/$COMPONENT/$COMPONENT.ini
-    status $?
-
-    # calling CONF_SERVICE function
+    # Calling Config-Svc Function
     CONF_SERVICE
 
 }
