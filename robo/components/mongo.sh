@@ -1,23 +1,7 @@
 #!/bin/bash
 
 COMPONENT=mongodb
-ID=$(id -u)
-LOGFILE="/tmp/mongo.logs"
-
-if [ $ID -ne 0 ] ; then
-    echo -e "\e[31m You should execute this script as root user or with a sudo as prefix  \e[0m"
-    exit 
-fi
-
-status() {
-    
-    if [ $1 -eq 0 ] ; then
-        echo -e "\e[32m Sucess \e[0m"
-    else
-        echo -e "\e[31m Failure \e[0m"
-        exit 
-    fi
-}
+source components/common.sh
 
 echo -n "Configuring the $COMPONENT repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
