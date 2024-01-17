@@ -26,16 +26,16 @@ systemctl restart mongod
 status $?
 
 echo -n "Downloading the schema : "
-curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"   &>> $LOGFILE
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"   &>> $LOGFILE
 status $?
 
 echo -n "Unzipping the downloaded schema : "
 cd /tmp
-unzip -o mongodb.zip &>> $LOGFILE
+unzip -o $COMPONENT.zip &>> $LOGFILE
 status $?
 
 echo -n "Injecting the schema : "
-cd mongodb-main
+cd $COMPONENT-main
 mongo < catalogue.js  &>> $LOGFILE
 mongo < users.js  &>> $LOGFILE
 status $?
