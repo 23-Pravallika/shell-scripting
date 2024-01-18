@@ -11,7 +11,7 @@ echo -n "Launching the instance with $AMI_ID as AMI :"
 
 #running the instance without mentioning the instance name :
 # aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro | jq
-if [ $COMPONENT -eq 0 ] ; then 
+if [ $COMPONENT -eq empty ] ; then 
 
     echo -e "\e [31m  Component Name is required \e[0m"
     exit
