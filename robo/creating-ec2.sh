@@ -3,15 +3,23 @@
 # This is a script created to launch EC2 Servers and create the associated Route53 Record 
 
 
-if [ -z "$COMPONENT" ] ; then 
+# if [ -z "$COMPONENT" ] ; then 
+
+#     echo -e "\e[31m Component Name is required \e[0m"
+#     exit
+
+# fi
+
+
+COMPONENT=$1
+
+if [ "$COMPONENT" -eq null ] ; then 
 
     echo -e "\e[31m Component Name is required \e[0m"
     exit
 
 fi
 
-
-COMPONENT=$1
 
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7" | jq '.Images[].ImageId' | sed -e 's/"//g')
 echo -n "Ami id is $AMI_ID  :"
