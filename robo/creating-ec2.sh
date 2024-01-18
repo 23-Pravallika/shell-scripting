@@ -5,7 +5,7 @@
 
 if [ -z "$COMPONENT" ] ; then 
 
-    echo -e "\e [31m  Component Name is required \e[0m"
+    echo -e "\e[31m  Component Name is required \e[0m"
     exit
 
 fi
