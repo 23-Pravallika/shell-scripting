@@ -3,7 +3,7 @@
 # This is a script created to launch EC2 Servers and create the associated Route53 Record 
 
 
-if [ -z "$COMPONENT" ] ; then 
+if [ -z "$1" ] ; then 
 
     echo -e "\e[31m Component Name is required \e[0m"
     exit
