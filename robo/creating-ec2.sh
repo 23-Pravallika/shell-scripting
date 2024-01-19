@@ -34,5 +34,5 @@ IP=$(aws ec2 run-instances  --image-id $AMI_ID \
 
 echo "PrivateIpAddresses is : $IP "
 
-sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IP}/" robo/r53.json  > /tmp/r53.json
+sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IP}/" r53.json  > /tmp/r53.json
 aws route53 change-resource-record-sets --hosted-zone-id $hostedzone_ID --change-batch file:///tmp/r53.json
