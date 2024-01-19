@@ -16,7 +16,7 @@ AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-Cen
 echo  "Ami id is : $AMI_ID "
 
 sg_ID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=launch-wizard-1 | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')
-echo  "Security_group id is : $sg_ID  :"
+echo  "Security_group id is : $sg_ID "
 
 echo -n "Launching the instance with $AMI_ID as AMI :"
 
