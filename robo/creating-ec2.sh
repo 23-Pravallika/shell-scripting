@@ -11,7 +11,7 @@ if [ -z "$1" ] ; then
 fi
 
 COMPONENT=$1
-hosted-zone_id=Z00591173BAPMZJNH5NV7
+hosted-zone_id="Z00591173BAPMZJNH5NV7"
 
 
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7" | jq '.Images[].ImageId' | sed -e 's/"//g')
