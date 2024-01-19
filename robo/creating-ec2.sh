@@ -11,6 +11,8 @@ if [ -z "$1" ] ; then
 fi
 
 COMPONENT=$1
+hosted-zone_id=Z00591173BAPMZJNH5NV7
+
 
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7" | jq '.Images[].ImageId' | sed -e 's/"//g')
 echo  "Ami id is : $AMI_ID "
@@ -18,15 +20,19 @@ echo  "Ami id is : $AMI_ID "
 sg_ID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=launch-wizard-1 | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')
 echo  "Security_group id is : $sg_ID "
 
-echo -n "Launching the instance with $AMI_ID as AMI :"
+echo "Launching the instance with $AMI_ID as AMI :"
 
 #running the instance without mentioning the instance name :
 # aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro | jq
 
 #running the instance with the instance name :
-aws ec2 run-instances  --image-id $AMI_ID \
+IP=$(aws ec2 run-instances  --image-id $AMI_ID \
         --instance-type t2.micro \
         --instance-market-options "MarketType=spot, SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}" \
         --security-group-ids ${SGID} \
-        --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]"  | jq
+        --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]"  | jq '.PrivateIpAddresses[].PrivateIpAddress' | sed -e 's/"//g')
 
+echo "PrivateIpAddresses is : $IP "
+
+sed -e 's/COMPONENT/${COMPONENT}/' -e 's/IPADDRESS/${IP}/' robo/rout53.json  > /tmp/record.json
+aws route53 change-resource-record-sets --hosted-zone-id ${hosted-zone_id} --change-batch file:///tmp/record.json
