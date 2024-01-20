@@ -49,7 +49,7 @@ status $?
 for COMPONENT in catalogue cart user shipping payment; do
 
     echo -n "Updating the proxy details in the reverse proxy file :"
-    sed -i  "/$COMPONENT/localhost/$COMPONENT.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
+    sed -i  "/$COMPONENT/s/localhost/$COMPONENT.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
 
 done
 
