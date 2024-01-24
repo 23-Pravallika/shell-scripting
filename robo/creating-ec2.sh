@@ -17,7 +17,7 @@ hostedzone_ID="Z00591173BAPMZJNH5NV7"
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7" | jq '.Images[].ImageId' | sed -e 's/"//g')
 echo  "Ami id is : $AMI_ID "
 
-sg_ID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=launch-wizard-1 | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')
+sg_ID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=allow-all-sg | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')
 echo  "Security_group id is : $sg_ID "
 
 echo "Launching the instance with $AMI_ID as AMI :"
