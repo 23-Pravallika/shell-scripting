@@ -36,3 +36,5 @@ echo "PrivateIpAddresses is : $IP "
 
 sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IP}/" r53.json  > /tmp/record.json
 aws route53 change-resource-record-sets --hosted-zone-id $hostedzone_ID --change-batch file:///tmp/record.json
+
+
