@@ -26,15 +26,32 @@ echo "Launching the instance with $AMI_ID as AMI :"
 # aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro | jq
 
 #running the instance with the instance name :
-IP=$(aws ec2 run-instances  --image-id $AMI_ID \
-        --instance-type t2.micro \
-        --instance-market-options "MarketType=spot, SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}" \
-        --security-group-ids ${sg_ID} \
-        --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]"  | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
+create_instance() {
+     
+    echo "*** Launching $COMPONENT Server ***"
+    
+    IP=$(aws ec2 run-instances  --image-id $AMI_ID \
+            --instance-type t2.micro \
+            --instance-market-options "MarketType=spot, SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}" \
+            --security-group-ids ${sg_ID} \
+            --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]"  | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
-echo "PrivateIpAddresses is : $IP "
+    echo "PrivateIpAddresses is : $IP "
 
-sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IP}/" r53.json  > /tmp/record.json
-aws route53 change-resource-record-sets --hosted-zone-id $hostedzone_ID --change-batch file:///tmp/record.json
+    sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IP}/" r53.json  > /tmp/record.json
+    aws route53 change-resource-record-sets --hosted-zone-id $hostedzone_ID --change-batch file:///tmp/record.json
 
+    echo "*** $COMPONENT Server Completed ***"
 
+}
+
+if [ $1 == "all" ] ; then
+
+    for component in frontend mongodb catalogue cart user mysql redis rabbitmq shipping payment ; do
+        COMPONENT=$COMPONENT 
+        create_instance
+    done 
+else
+    create_instance
+    
+fi
