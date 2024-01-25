@@ -51,7 +51,8 @@ if [ $1 == "all" ] ; then
         COMPONENT=$COMPONENT 
         create_instance
     done 
+    
 else
     create_instance
-    
+
 fi
