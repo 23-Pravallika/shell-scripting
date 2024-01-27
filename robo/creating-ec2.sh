@@ -45,7 +45,7 @@ create_instance() {
 
 }
 
-if [ $1 == "all" ] ; then
+if [ "$1" == "all" ] ; then
 
     for component in frontend mongodb catalogue cart user mysql redis rabbitmq shipping payment ; do
         COMPONENT=$COMPONENT 
@@ -53,6 +53,7 @@ if [ $1 == "all" ] ; then
     done 
     
 else
+    
     create_instance
 
 fi
