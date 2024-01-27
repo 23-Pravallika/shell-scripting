@@ -3,14 +3,15 @@
 # This is a script created to launch EC2 Servers and create the associated Route53 Record 
 
 
-if [ -z "$1" ] ; then 
+if [ -z "$1" ] || [ -z "$2"] ; then 
 
-    echo -e "\e[31m Component Name is required \e[0m"
+    echo -e "\e[31m Component Name and ENV is required \e[0m"
     exit
 
 fi
 
 COMPONENT=$1
+ENV=$2
 hostedzone_ID="Z00591173BAPMZJNH5NV7"
 
 
@@ -34,11 +35,11 @@ create_instance() {
             --instance-type t2.micro \
             --instance-market-options "MarketType=spot, SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}" \
             --security-group-ids ${sg_ID} \
-            --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]"  | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
+            --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}-${ENV}}]"  | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
     echo "PrivateIpAddresses is : $IP "
 
-    sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IP}/" r53.json  > /tmp/record.json
+    sed -e "s/COMPONENT/${COMPONENT}-${ENV}/" -e "s/IPADDRESS/${IP}/" r53.json  > /tmp/record.json
     aws route53 change-resource-record-sets --hosted-zone-id $hostedzone_ID --change-batch file:///tmp/record.json
 
     echo "*** $COMPONENT Server Completed ***"
